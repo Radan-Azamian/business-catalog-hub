@@ -1,0 +1,5 @@
+# Block environment variables globally
+.env
+
+# Block massive dependency folders globally
+node_modules/
