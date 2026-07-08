@@ -3,17 +3,21 @@ const Item = require('../models/item');
 // this is the query to fetch all items from the database, with optional filtering by category
 const getItems = async (req, res) => {
     try {
-        const {category} = req.query;
-        let query = {};
-        // the next 3 lines are to check if a category filter is provided
+        const { category } = req.query;
+        let queryCondition = {};
+
         if (category) {
-            query.category = category;
+            queryCondition.category = category;
         }
-        const items = await Item.find(query);
+
+        const items = await Item.findAll({ where: queryCondition });
         res.status(200).json(items);
     } catch (error) {
-        res.status(500).json({message: 'Server Error: unable to fetch items'});
-        }
+        // 👇 ADD THIS LINE RIGHT HERE TO REVEAL THE HIDDEN ROADBLOCK IN TERMINAL
+        console.error("❌ PHYSICAL DATABASE FETCH FAILURE DETAILS:", error);
+        
+        res.status(500).json({ message: 'Server Error: Unable to fetch items from PostgreSQL' });
+    }
 };
 
 // this is the query to fetch a single item by its ID

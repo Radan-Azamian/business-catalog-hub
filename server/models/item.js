@@ -5,7 +5,6 @@ const Item = sequelize.define('Item', {
     title: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: { notEmpty: true }
     },
     description: {
         type: DataTypes.TEXT,
@@ -27,13 +26,6 @@ const Item = sequelize.define('Item', {
     features: {
         type: DataTypes.TEXT, // PostgreSQL stores simple arrays or strings easily
         defaultValue: '',
-        get() {
-            const rawValue = this.getDataValue('features');
-            return rawValue ? rawValue.split(',') : [];
-        },
-        set(val) {
-            this.setDataValue('features', Array.isArray(val) ? val.join(',') : val);
-        }
     }
 });
 

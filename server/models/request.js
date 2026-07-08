@@ -1,40 +1,31 @@
-const mongoose = require('mongoose');
+const {DataTypes} = require('sequelize');
+const sequelize = require('../config/db');
 
-const requestSchema = new mongoose.Schema({
+const request = sequelize.define('Request', {
     clientName: {
-        type: String,
-        required: [true, 'Client name is required'],
-        trim: true
-    },
-    clientPhone: {
-        type: String,
-        required: [true, 'Contact phone number is required']
+        type: DataTypes.STRING,
+        allowNull:false,
+        validate : {notEmpty: true}
+        },
+        clientPhone: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     clientEmail: {
-        type: String,
-        trim: true
+        type: DataTypes.STRING,
+        validate: { isEmail: true } // Native column validation
     },
     notes: {
-        type: String
+        type: DataTypes.TEXT
     },
-    selectedItems: [
-        {
-            item: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Item', // Creates a relational reference link pointing directly to the Item schema
-                required: true
-            },
-            quantity: {
-                type: Number,
-                default: 1
-            }
-        }
-    ],
+    selectedItems: {
+        type: DataTypes.JSONB,
+        defaultValue: []
+    },
     status: {
-        type: String,
-        enum: ['Pending', 'Contacted', 'Completed'],
-        default: 'Pending'
+        type: DataTypes.ENUM('Pending', 'Contacted', 'Completed'),
+        defaultValue: 'Pending'
     }
-}, { timestamps: true });
+});
 
-module.exports = mongoose.model('Request', requestSchema);
+module.exports = Request;
