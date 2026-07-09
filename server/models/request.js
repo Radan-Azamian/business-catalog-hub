@@ -1,29 +1,32 @@
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-const request = sequelize.define('Request', {
+const Request = sequelize.define('Request', {
     clientName: {
         type: DataTypes.STRING,
-        allowNull:false,
-        validate : {notEmpty: true}
-        },
-        clientPhone: {
+        allowNull: false
+    },
+    clientPhone: {
         type: DataTypes.STRING,
         allowNull: false
     },
     clientEmail: {
         type: DataTypes.STRING,
-        validate: { isEmail: true } // Native column validation
+        allowNull: true
     },
     notes: {
-        type: DataTypes.TEXT
+        type: DataTypes.TEXT,
+        allowNull: true
     },
+    
     selectedItems: {
-        type: DataTypes.JSONB,
-        defaultValue: []
+        type: DataTypes.TEXT,
+        allowNull: true,
+        defaultValue: '' 
     },
     status: {
-        type: DataTypes.ENUM('Pending', 'Contacted', 'Completed'),
+        type: DataTypes.STRING,
+        allowNull: true,
         defaultValue: 'Pending'
     }
 });
