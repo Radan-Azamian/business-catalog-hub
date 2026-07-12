@@ -8,7 +8,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 const connectDB = async () => {
     try {
         await sequelize.authenticate();
-        await sequelize.sync(); 
+        await sequelize.sync(); // This will drop and recreate tables on every server restart
         console.log('PostgreSQL Database Connected Successfully!');
     } catch (error) {
         console.error(`Postgres Connection Error: ${error.message}`);

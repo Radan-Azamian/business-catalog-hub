@@ -6,33 +6,57 @@ import Catalog from './components/Catalog';
 function App() {
   return (
     <div style={{ 
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', 
-      padding: '30px', 
-      maxWidth: '1200px', 
+      maxWidth: '1440px', 
       margin: '0 auto', 
-      backgroundColor: '#3b3a3ad0',
-      minHeight: '100vh'
+      padding: '40px 20px',
+      boxSizing: 'border-box'
     }}>
       <header style={{ 
         textAlign: 'center', 
-        paddingBottom: '20px', 
-        marginBottom: '30px',
-        borderBottom: '1px solid #eaeded' 
+        marginBottom: '40px',
+        paddingBottom: '30px',
+        borderBottom: '1px solid #eedecc'
       }}>
-        <h1 style={{ margin: '0 0 8px 0', color: '#6e2c00', fontSize: '36px' }}>
-          ☕ Benito Cafe Catalog
+      
+        <h1 style={{ 
+          margin: '0 0 10px 0', 
+          color: '#6a4a45', 
+          fontSize: '42px', 
+          fontWeight: '800',
+          letterSpacing: '-0.5px'
+        }}>
+          Benito Cafe Catalog Hub
         </h1>
-        <p style={{ margin: 0, color: '#7f8c8d', fontSize: '16px' }}>
-          A full-stack decoupling demo rendering records directly from a local PostgreSQL database instance.
-        </p>
+        <span style={{
+          backgroundColor: '#f3e6d8',
+          color: '#6e473b',
+          fontSize: '16px',
+          fontWeight: 'bold',
+          letterSpacing: '2px',
+          textTransform: 'uppercase',
+          padding: '6px 16px',
+          borderRadius: '20px',
+          display: 'inline-block',
+          marginBottom: '12px'
+        }}>
+          Premium Roastery Ecosystem
+        </span>
       </header>
       
       <main>
         <Catalog />
       </main>
       
-      <footer style={{ textAlign: 'center', color: '#bdc3c7', fontSize: '12px', marginTop: '60px', borderTop: '1px solid #eaeded', paddingTop: '20px' }}>
-        COM4134 Final Web Project Workspace
+      <footer style={{ 
+        textAlign: 'center', 
+        color: '#bfae9e', 
+        fontSize: '13px', 
+        marginTop: '80px', 
+        borderTop: '1px solid #eedecc', 
+        paddingTop: '30px',
+        letterSpacing: '0.5px'
+      }}>
+        COM4134 Final Architectural Showcase Presentation Workspace
       </footer>
     </div>
   );
