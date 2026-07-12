@@ -79,6 +79,12 @@ function Catalog() {
     };
 
     if (loading) return <h3 style={{ textAlign: 'center', marginTop: '40px' }}>☕ Grinding fresh coffee beans... Loading Menu...</h3>;
+            // i got this part from ai and here is the first prompt:
+        //Can you provide a clean React template that handles both product catalog rendering and selection list management in a single view? 
+        // I want the top half to map over database records to generate menu cards with clean inline styling. 
+        // I want the bottom half to serve as a 'Virtual Cart' that displays live selections from state. 
+        // Provide the precise JSX mapping syntax for items.map and selectedItems.map, 
+        // complete with click handler assignments (handleAddToBag and handleRemoveFromBag) so I can connect them to my global component state
         const getCategoryBadgeStyle = (category) => {
         const base = { fontSize: '11px', padding: '4px 10px', borderRadius: '20px', fontWeight: 'bold', display: 'inline-block' };
         if (category === "Coffee Beans") return { ...base, backgroundColor: '#3d2e24', color: '#dfcbb5' };
@@ -86,7 +92,7 @@ function Catalog() {
         if (category === "Hot Drinks") return { ...base, backgroundColor: '#472a16', color: '#ffad73' };
         return { ...base, backgroundColor: '#2d1a38', color: '#dca6f2' };
     };
-   // 🎨 Only replace the return statement at the bottom of your Catalog.jsx file:
+
     return (
         <div style={{ 
             display: 'grid', 
