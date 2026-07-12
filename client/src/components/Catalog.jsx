@@ -114,7 +114,7 @@ function Catalog() {
             </div>
 
             {/* 🛒 SECTION: Shopping Bag Selection List & Checkout Form */}
-            <div style={{ marginTop: '50px', padding: '25px', border: '1px solid #bdc3c7', borderRadius: '12px', backgroundColor: '#fdfefe', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>
+            <div style={{ marginTop: '50px', padding: '25px', border: '1px solid #bdc3c7', borderRadius: '12px', backgroundColor: '#704b4bc0', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>
                 <h2 style={{ color: '#6e2c00', margin: '0 0 20px 0', borderBottom: '2px solid #e59866', paddingBottom: '10px' }}>
                     🛒 Your Selected Items ({selectedItems.length})
                 </h2>
